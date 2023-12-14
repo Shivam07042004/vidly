@@ -34,6 +34,12 @@ const NavBar = () => {
             <NavLink className="nav-link nav-item colors" to="/rentals">
               Rentals
             </NavLink>
+            <NavLink className="nav-link nav-item colors" to="/login">
+              Login
+            </NavLink>
+            <NavLink className="nav-link nav-item colors" to="/register">
+              Register
+            </NavLink>
           </div>
         </div>
       </div>
