@@ -1,12 +1,14 @@
 import http from "./httpService";
 import config from "../config.json";
 
-const apiEndpoints = config.apiUrl + "/movies";
+const apiEndpoint = config.apiUrl + "/movies";
+
 function movieUrl(id) {
-  return `${apiEndpoints}/${id}`;
+  return `${apiEndpoint}/${id}`;
 }
+
 export function getMovies() {
-  return http.get(apiEndpoints);
+  return http.get(apiEndpoint);
 }
 
 export function getMovie(movieId) {
@@ -16,14 +18,13 @@ export function getMovie(movieId) {
 export function saveMovie(movie) {
   if (movie._id) {
     const body = { ...movie };
-    const movieId = body._id;
     delete body._id;
-    return http.put(movieUrl(movieId), body);
+    return http.put(movieUrl(movie._id), body);
   }
 
-  return http.post(apiEndpoints, movie);
+  return http.post(apiEndpoint, movie);
 }
 
 export function deleteMovie(movieId) {
-  return http.delete(movieUrl(movieUrl));
+  return http.delete(movieUrl(movieId));
 }
